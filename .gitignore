@@ -1,0 +1,21 @@
+﻿# Visual Studio / MSBuild Build Output
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+
+# Visual Studio User & Cache Files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.dbmdl
+
+# Local Database Logs & Temporary Lock Files
+*.ldf
+*.mdf.lock
+
+# NuGet Packages (can be restored via package manager)
+packages/
+!packages/repositories.config
