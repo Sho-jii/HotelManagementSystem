@@ -52,7 +52,7 @@ A desktop **Hotel Front-Desk Management System** built with **C# Windows Forms**
 | **UI Styling** | Guna2 UI Controls (`Guna.UI2.WinForms`) |
 | **Database** | Microsoft SQL Server LocalDB (`(LocalDB)\MSSQLLocalDB`) |
 | **Data Access** | ADO.NET (`System.Data.SqlClient`) with Parameterized Queries |
-| **Architecture** | Dynamic LocalDB Resolver, Clean Resource Management (`using` scopes) |
+| **Architecture** | Tiered Architecture (`_Forms`, `_UserControls`, `_Models`) |
 
 ---
 
@@ -95,16 +95,21 @@ A desktop **Hotel Front-Desk Management System** built with **C# Windows Forms**
 
 ```plaintext
 HotelManagementSystem/
-├── AddRooms.cs               # Room creation, rate configuration & inventory
-├── CustomerRegistration.cs   # Guest check-in & automated room allocation
-├── CustomerCheckout.cs       # Active guest billing & room release
-├── ViewCustomerDetails.cs    # Filterable guest directory (In-hotel vs Checked-out)
-├── EditCustomerDetails.cs    # Customer profile update dialog
-├── AddUsers.cs               # Staff user accounts administration
-├── Dashboard.cs              # Main dashboard navigation container
-├── Login.cs                  # User authentication with active role checks
-├── function.cs               # Dynamic LocalDB connection & parameterized helper
-├── UsersData.cs              # User entity data mapper
+├── _Forms/                   # Main top-level application windows
+│   ├── Login.cs                 # User authentication with active status verification
+│   └── Dashboard.cs             # Main navigation container & tab host
+├── _UserControls/            # Modular views embedded inside Dashboard
+│   ├── AddRooms.cs              # Room creation, rate configuration & inventory
+│   ├── CustomerRegistration.cs  # Guest intake & automated room allocation
+│   ├── CustomerCheckout.cs      # Active guest billing & room release
+│   ├── ViewCustomerDetails.cs   # Filterable guest directory (In-hotel vs Checked-out)
+│   ├── EditCustomerDetails.cs   # Customer profile editing modal/drawer
+│   └── AddUsers.cs              # Staff user accounts administration
+├── _Models/                  # Data access layer & entity models
+│   ├── function.cs              # Dynamic LocalDB resolver & parameterized command executor
+│   └── UsersData.cs             # User entity mapper
+├── Resources/                # Application icons, images, and graphics
+├── Program.cs                # Application startup & bootstrapper
 ├── inventoryHotel.mdf        # LocalDB SQL database file
 ├── SQLQuery1.sql             # SQL schema definitions and table queries
 └── README.md                 # Project & freelance documentation
